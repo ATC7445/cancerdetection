@@ -5,8 +5,10 @@ from PIL import Image
 import glob
 from flask_mysqldb import MySQL
 from datetime import datetime
+from waitress import serve
 
 app = Flask(__name__)
+
 app.secret_key = "your_secret_key"
 
 # ตั้งค่า MySQL
@@ -248,3 +250,5 @@ def about():
 
 if __name__ =="__main__":
     app.run(debug=True)
+
+    
