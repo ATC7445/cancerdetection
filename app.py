@@ -1,12 +1,11 @@
-from flask import Flask, render_template, request, redirect, send_from_directory, url_for,flash,jsonify 
+from flask import Flask, render_template, request, redirect,jsonify 
 import os 
 from ultralytics import YOLO 
-from waitress import serve 
-from PIL import Image,ImageDraw, ImageFont
+from PIL import Image
 import glob
 from flask_mysqldb import MySQL
 from datetime import datetime
-import requests
+
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
 
@@ -247,3 +246,5 @@ def about():
     return render_template('about.html')
 
 
+if __name__ =="__main__":
+    app.run(debug=True)
