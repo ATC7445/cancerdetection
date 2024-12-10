@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>History</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <div id="logo"></div>
+        <div class="logout"></div>
+        <nav>
+          <ul class="nav-links">
+              <div class="dropdown">
+                  <button class="dropbtn">Model 
+                  <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-content">
+                    <a href="/">Object Detection</a>
+                    </div>
+                </div> 
+                <li><a href="/">Home</a></li>
+                <li><a href="/history">History</a></li>
+          </ul>
+      </nav>
+      </div>
+    </header>
+    <div class="topic-text">
+      <p1>Image History</p1>
+      <p2>Manage your History here.</p2>
+    </div>
+    <table id="table-history">
+      <thead>
+        <tr>
+          <th>Image ID</th>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Time</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for image in images %}
+        <tr id="row-{{ image[0] }}">
+          <td>{{ image[0] }}</td>
+          <td>
+            <img
+              src="{{ image[2] }}"
+              alt="{{ image[1] }}"
+              width="400"
+            />
+          </td>
+          <td>{{ image[1] }}</td>
+          <td>{{ image[3] }}</td>
+          <td>
+            <button class="delete-btn-history" onclick="deleteImage({{ image[0] }})">Delete</button>
+            <button class="download-btn-history" onclick="downloadHistoryBtn({{ image[0] }})">
+              Download
+            </button>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>

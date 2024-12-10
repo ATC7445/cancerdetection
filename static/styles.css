@@ -1,0 +1,417 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*{
+  font-family: Arial, sans-serif;
+}
+/*Navigation bar*/
+.head {
+  top: 0px;
+  height: 60px;
+  border: 1px solid white;
+  text-align: center;
+}
+.head p {
+  font-size: 28px;
+}
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 px;
+  overflow: hidden;
+}
+
+header {
+  background-color: #0d6efd;
+  color: #fff;
+  padding: 10px 0;
+  position: relative;
+  height: 50px;
+}
+
+#logo {
+  float: left;
+  font-size: 20px;
+  position: absolute;
+  top: 25px;
+  left: 20px;
+}
+.logout {
+  font-size: 20px;
+  position: absolute;
+  top: 25px;
+  left: 150px;
+}
+nav {
+  float: right;
+}
+
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  right: 20px;
+  position: absolute;
+  right: 30px;
+}
+
+.nav-links li {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.nav-links li a {
+  font-size: 25px;
+  color: #fff;
+  text-decoration: none;
+  padding: 3px 15px;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.nav-links li a:hover {
+  background-color: #555;
+}
+/*drop dwon nav bar*/
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 25px;
+  color: #fff;
+  text-decoration: none;
+  padding: 3px 15px;
+  display: inline-block;
+  transition: background-color 0.3s;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  border: none;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #555;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/*content below*/
+.model-name {
+  position: absolute;
+  left: 30px;
+  top: 15px;
+}
+.model-name h2{
+  font-size: 25px;
+}
+.container2 {
+  top: 30px;
+  width: 1400px;
+  height: 900px;
+  border: 2px solid blue;
+  position: relative;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+.image-container {
+  width: 650px;
+  height: 530px;
+  border: 3px solid blue;
+  position: absolute;
+  top: 60px;
+  left: 40px;
+  border-radius: 25px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+.image-container2 {
+  width: 650px;
+  height: 530px;
+  border: 3px solid blue;
+  position: absolute;
+  top: 60px;
+  right: 40px;
+  border-radius: 25px;
+  padding: 20px;
+}
+.btn-group {
+  width: 1200px;
+  height: 90px;
+  position: absolute;
+  border: none;
+  top: 620px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.btn-group-inside1 {
+  display: flex;
+  justify-content: center;
+  width: 1200px;
+  height: 60px;
+  position: absolute;
+  border: none;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.upload-btn {
+  margin: 5px 20px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.upload-btn input[type="file"] {
+  display: none; /* ซ่อน input file */
+}
+
+.delete-btn {
+  margin: 5px 200px 20px 20px;
+  padding: 10px 20px;
+  background-color: #f44336;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+}
+
+.btn-predict {
+  margin: 5px 20px 20px 200px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+}
+.download-btn {
+  margin: 5px 20px;
+  padding: 10px 20px;
+  background-color: #0dcaf0;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+}
+.download-btn a {
+  color: white;
+  text-decoration: none;
+}
+.btn-save {
+  width: 170px;
+  height: 50px;
+  position: absolute;
+  border: hidden;
+  top: 5px;
+  right: 50px;
+  background-color: #20c997;
+  border-radius: 20px;
+}
+.btn-save { /*font btn-save*/
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  line-height: 50px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-group-inside1 label:hover {
+  background-color: #1e5046;
+}
+.btn-group-inside1 button:hover {
+  background-color: #1e5046;
+}
+.save button:hover {
+  background-color: #1e5046;
+  border-radius: 20px;
+}
+.image-container img {
+  display: block;
+  width: 600px;
+  height: 480px;
+}
+canvas {
+  display: block;
+  width: 600px;
+  height: 480px;
+}
+.speci{
+  position: absolute;
+  top: 750px;
+  left: 40px;
+  border: 2px solid blue; 
+  width: 1320px;
+  padding: 10px;
+  border-radius: 10px;
+}
+/*Modal แสดงว่าบันทึกสำเร็จ*/
+/* สไตล์พื้นหลังของ modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index:999;
+}
+
+/* ตัว modal */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+/* ปุ่ม */
+.modal button,
+.modal a {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal button:hover,
+.modal a:hover {
+  background-color: #0056b3;
+}
+
+.modal a {
+  display: inline-block;
+  margin-top: 15px;
+}
+
+/*ส่วน History */
+.topic-text p1 {
+  font-size: 50px;
+  position: absolute;
+  top: 100px;
+  left: 120px;
+}
+.topic-text p2 {
+  font-size: 30px;
+  color: gray;
+  position: absolute;
+  top: 200px;
+  left: 120px;
+}
+
+/*History table*/
+#table-history {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  position: absolute;
+  top: 280px;
+  left: 120px;
+}
+
+#table-history td,
+#table-history th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#table-history tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table-history tr:hover {
+  background-color: #ddd;
+}
+
+#table-history th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #198754;
+  color: white;
+}
+/*ปุ่ม delete, download หน้า history*/
+.delete-btn-history {
+  margin: 5px 20px;
+  padding: 10px 20px;
+  background-color: #f44336;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  display: flex;
+  justify-content: center;
+}
+.download-btn-history {
+  margin: 5px 20px;
+  padding: 10px 20px;
+  background-color: #20c997;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  display: flex;
+  justify-content: center;
+}
+

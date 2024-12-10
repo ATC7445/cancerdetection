@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div id="logo"></div>
+            <div class="logout"></div>
+            <nav>
+                <ul class="nav-links">
+                    <div class="dropdown">
+                        <button class="dropbtn">Model 
+                        <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                        <a href="/">Object Detection</a>
+                        </div>
+                    </div> 
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/history">History</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section>
+        <div class="container2">
+            <div><h2 class="model-name">Object Detection</h2></div>
+             <!-- model that shows when you click to a save button.-->
+             <form id="save-form">
+                <input type="hidden" name="image_name" id="imageName" value="">
+                <button type="button" class="btn-save" onclick="saveResult()">Save Result</button>
+            </form>
+            <!--Modal สำหรับแสดงข้อความ success--> 
+            <div class="modal-overlay" id="modalOverlay">
+                <div class="modal" id="modal">
+                    <p id="modalMessage">Message goes here...</p>
+                    <button onclick="closeModal()">Close</button>
+                </div>
+            </div>
+            <!--End modal-->
+            <div class="image-container">
+                <img id="preview" src="" alt="Uploaded Image" style="display: none;">
+            </div>
+            <div class="image-container2">
+                <canvas id="canvas"></canvas>
+            </div>
+            <div class="btn-group">
+                <div class="btn-group-inside1">
+                    <form action="/upload" method="POST" enctype="multipart/form-data" id="predict-form">
+                        <label class="upload-btn">
+                            <input type="file" name="file" accept="image/*" onchange="showImagePreview(event)" style="display: none;"required>
+                            Upload
+                        </label>
+                        <button id="clearButton" type="button" onclick="clearImage()" class="delete-btn">Clear Image</button>
+                        <button class="btn-predict" type="submit" id="predict-form">Predict</button>
+                        <button type="button" class="download-btn">
+                            <a id="download-link" href="#" download>Download</a>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="speci">
+                <h3>Specification</h3>
+                <br>
+                <p><b>Dataset name: </b> yolos Computer Vision Project form Roboflow </p>
+                <p><b>Dataset source: </b><a href="https://universe.roboflow.com/convertannotations-abgmz/yolos-knr2v/dataset/2">https://universe.roboflow.com/convertannotations-abgmz/yolos-knr2v/dataset/2</a> </p>
+            </div>    
+        </div>
+    </section>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        // ฟังก์ชันเปิด modal สำหรับปุ่ม save เพื่อบอกว่าบันทึกสำเร็จ
+        function showModal(message) {
+            const modalOverlay = document.getElementById('modalOverlay');
+            const modalMessage = document.getElementById('modalMessage');
+            modalMessage.textContent = message; // แสดงข้อความที่กำหนด
+            modalOverlay.style.display = 'block';
+        }
+        function closeModal() {
+            const modalOverlay = document.getElementById('modalOverlay');
+            modalOverlay.style.display = 'none';
+        }        
+        // ตรวจสอบ flash messages จาก Flask
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                window.onload = function() {
+                    {% for category, message in messages %}
+                        showModal("{{ message }}"); // แสดงข้อความใน modal
+                    {% endfor %}
+                };
+            {% endif %}
+        {% endwith %}
+    </script>
+</body>
+</html>
