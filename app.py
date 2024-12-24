@@ -6,9 +6,11 @@ import glob
 from flask_mysqldb import MySQL
 from datetime import datetime
 from waitress import serve
+from flask_cors import CORS
+
 
 app = Flask(__name__)
-
+CORS(app)
 app.secret_key = "your_secret_key"
 
 # ตั้งค่า MySQL
