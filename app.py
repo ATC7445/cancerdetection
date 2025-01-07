@@ -6,11 +6,12 @@ import glob
 from flask_mysqldb import MySQL
 from datetime import datetime
 from waitress import serve
-from flask_cors import CORS
+import numpy as np
+#from flask_cors import CORS
 
 
 app = Flask(__name__)
-CORS(app)
+#CORS(app)
 app.secret_key = "your_secret_key"
 
 # ตั้งค่า MySQL
@@ -250,10 +251,6 @@ def about():
     return render_template('about.html')
 
 
-#if __name__ =="__main__":
-#    app.run(debug=True)
-if __name__ == '__main__':
-    # ดึงค่า PORT จาก Environment Variable (ถ้าไม่มีใช้ค่า 5000 เป็นค่าเริ่มต้น)
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
-    
+if __name__ =="__main__":
+    app.run(debug=True)
+
